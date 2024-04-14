@@ -773,7 +773,7 @@ export interface ApiClubClub extends Schema.CollectionType {
   info: {
     singularName: 'club';
     pluralName: 'clubs';
-    displayName: 'Club';
+    displayName: 'Character';
     description: '';
   };
   options: {

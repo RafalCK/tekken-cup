@@ -1,19 +1,23 @@
 <template>
 	<div class="matches-card">
 		<div class="matches-card__player matches-card__player__home">
-			<span>{{ item.attributes.playerHome.data.attributes.name }} {{ item.attributes.playerHome.data.attributes.surname }}</span>
 			<NuxtImg
+				class="matches-card__player__image"
 				provider="strapi"
 				:src="item.attributes.playerHome.data.attributes.club.data.attributes.logo.data.attributes.url"
-				height="40" />
+				height="80" />
+			<span class="matches-card__player__name matches-card__player__name__home">{{ item.attributes.playerHome.data.attributes.club.data.attributes.name }}</span>
+			<span>{{ item.attributes.playerHome.data.attributes.name }} {{ item.attributes.playerHome.data.attributes.surname }}</span>
 		</div>
 		<div class="matches-card__result">{{ item.attributes.goalsHome !== null ? (item.attributes.goalsHome !== 0 ? item.attributes.goalsHome : "0") : "-" }} : {{ item.attributes.goalsAway !== null ? (item.attributes.goalsAway !== 0 ? item.attributes.goalsAway : "0") : "-" }}</div>
 		<div class="matches-card__player matches-card__player__away">
+			<span>{{ item.attributes.playerAway.data.attributes.name }} {{ item.attributes.playerAway.data.attributes.surname }}</span>
 			<NuxtImg
+				class="matches-card__player__image"
 				provider="strapi"
 				:src="item.attributes.playerAway.data.attributes.club.data.attributes.logo.data.attributes.url"
-				height="40" />
-			<span>{{ item.attributes.playerAway.data.attributes.name }} {{ item.attributes.playerAway.data.attributes.surname }}</span>
+				height="80" />
+			<span class="matches-card__player__name matches-card__player__name__away">{{ item.attributes.playerAway.data.attributes.club.data.attributes.name }}</span>
 		</div>
 	</div>
 </template>
@@ -38,7 +42,6 @@ const props = defineProps({
 	background: $color-black-500;
 	border-bottom: rem(6) solid $color-primary;
 	box-sizing: border-box;
-	padding: rem(30) rem(40) rem(30) rem(20);
 	z-index: -1;
 
 	&__player {
@@ -51,11 +54,30 @@ const props = defineProps({
 		}
 
 		&__home {
-			justify-content: flex-end;
+			justify-content: space-between;
 		}
 
 		&__away {
-			justify-content: flex-start;
+			justify-content: space-between;
+		}
+
+		&__image {
+			position: relative;
+		}
+
+		&__name {
+			font-size: rem(14);
+			position: absolute;
+			bottom: rem(5);
+			text-shadow: 0 0 rem(5) $color-black;
+
+			&__home {
+				left: rem(5);
+			}
+
+			&__away {
+				right: rem(5);
+			}
 		}
 	}
 

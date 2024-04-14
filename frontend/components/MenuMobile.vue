@@ -92,6 +92,7 @@ watch(
 		top: 60px;
 		right: 0;
 		width: 100%;
+		z-index: 9999;
 
 		:deep(.nav) {
 			display: flex;
