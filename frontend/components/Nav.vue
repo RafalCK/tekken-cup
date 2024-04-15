@@ -41,11 +41,13 @@
 
 		&.router-link-active {
 			background: $color-grey;
+			color: $color-black;
 			border-top: rem(6) solid $color-primary;
 		}
 
 		&:hover {
 			background: $color-grey;
+			color: $color-black;
 			border-top: rem(6) solid $color-primary;
 		}
 	}

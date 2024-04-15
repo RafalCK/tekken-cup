@@ -100,6 +100,7 @@ watch(
 
 			.nav__link {
 				width: 100%;
+				color: $color-black;
 
 				&.router-link-active {
 					&:hover {

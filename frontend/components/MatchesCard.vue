@@ -48,6 +48,7 @@ const props = defineProps({
 		display: flex;
 		align-items: center;
 		gap: rem(8);
+		color: $color-black;
 
 		span {
 			text-align: center;
@@ -67,6 +68,7 @@ const props = defineProps({
 
 		&__name {
 			font-size: rem(14);
+			color: $color-white;
 			position: absolute;
 			bottom: rem(5);
 			text-shadow: 0 0 rem(5) $color-black;

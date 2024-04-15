@@ -3,12 +3,12 @@
 		<div class="dashboard__info">
 			<div class="dashboard__info__left">
 				<div class="dashboard__info__header">
-					<span style="color: #00dfec">K</span>OLEJKA <span style="color: #00dfec">{{ currentRound }}</span>
+					<span style="color: #c9231c">K</span>OLEJKA <span style="color: #c9231c">{{ currentRound }}</span>
 				</div>
 				<IncomingMatches :current-round="currentRound" />
 			</div>
 			<div class="dashboard__info__right">
-				<div class="dashboard__info__header"><span style="color: #00dfec">T</span>abela</div>
+				<div class="dashboard__info__header"><span style="color: #c9231c">T</span>abela</div>
 				<Table kind="short" />
 			</div>
 		</div>

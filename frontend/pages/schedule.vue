@@ -94,6 +94,7 @@ let currentRound: number = currentRoundResponse.data.attributes.round;
 			display: flex;
 			align-items: center;
 			gap: rem(8);
+			color: $color-black;
 
 			&__home {
 				justify-content: flex-end;

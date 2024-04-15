@@ -32,7 +32,10 @@
       "relation": "oneToOne",
       "target": "api::player.player"
     },
-    "draws": {
+    "drawsWin": {
+      "type": "integer"
+    },
+    "drawsLost": {
       "type": "integer"
     }
   }

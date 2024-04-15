@@ -56,6 +56,8 @@ const props = defineProps({
 		&__name {
 			display: flex;
 			flex-direction: row;
+			flex-wrap: wrap;
+			color: $color-black;
 			font-size: rem(20);
 			gap: rem(5);
 			align-items: center;

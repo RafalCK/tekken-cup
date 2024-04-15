@@ -949,7 +949,8 @@ export interface ApiSummarySummary extends Schema.CollectionType {
       'oneToOne',
       'api::player.player'
     >;
-    draws: Attribute.Integer;
+    drawsWin: Attribute.Integer;
+    drawsLost: Attribute.Integer;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

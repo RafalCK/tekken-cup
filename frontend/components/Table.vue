@@ -6,8 +6,9 @@
 				<th>Zawodnik</th>
 				<th>{{ isShort ? "M" : "Mecze" }}</th>
 				<th v-if="!isShort">{{ isShort ? "Z" : "Zwycięstwa" }}</th>
-				<th v-if="!isShort">{{ isShort ? "R" : "Remisy" }}</th>
+				<th v-if="!isShort">{{ isShort ? "WD" : "Wygrana dogrywka" }}</th>
 				<th v-if="!isShort">{{ isShort ? "P" : "Przegrane" }}</th>
+				<th v-if="!isShort">{{ isShort ? "PD" : "Przegrana dogrywka" }}</th>
 				<th>{{ isShort ? "B" : "Bilans" }}</th>
 				<th>{{ isShort ? "P" : "Punkty" }}</th>
 			</tr>
@@ -26,10 +27,11 @@
 					</td>
 					<td>{{ summary.attributes.matches }}</td>
 					<td v-if="!isShort">{{ summary.attributes.wins }}</td>
-					<td v-if="!isShort">{{ summary.attributes.draws }}</td>
+					<td v-if="!isShort">{{ summary.attributes.drawsWin }}</td>
 					<td v-if="!isShort">{{ summary.attributes.lost }}</td>
+					<td v-if="!isShort">{{ summary.attributes.drawsLost }}</td>
 					<td>{{ summary.attributes.goalsScored }}-{{ summary.attributes.goalsLost }}</td>
-					<td class="table__table__points">{{ summary.attributes.wins * 3 + summary.attributes.draws * 1 }}</td>
+					<td class="table__table__points">{{ summary.attributes.wins * 3 + summary.attributes.drawsWin * 2 + summary.attributes.drawsLost * 1 }}</td>
 				</tr>
 			</tbody>
 		</table>
@@ -51,8 +53,8 @@ const summariesResponse = await find("summaries", {
 });
 
 let summaries = summariesResponse.data.sort((a, b) => {
-	const scoreA = a.attributes.wins * 3 + a.attributes.draws * 1;
-	const scoreB = b.attributes.wins * 3 + b.attributes.draws * 1;
+	const scoreA = a.attributes.wins * 3 + a.attributes.drawsWin * 2 + a.attributes.drawsLost * 1;
+	const scoreB = b.attributes.wins * 3 + b.attributes.drawsWin * 2 + b.attributes.drawsLost * 1;
 
 	const goalDifferenceA = a.attributes.goalsScored - a.attributes.goalsLost;
 	const goalDifferenceB = b.attributes.goalsScored - b.attributes.goalsLost;
@@ -72,6 +74,7 @@ const isShort = computed(() => props.kind === "short" || false);
 	justify-content: flex-start;
 	background: $color-black-500;
 	border-bottom: rem(6) solid $color-primary;
+	color: $color-black;
 	overflow-x: auto;
 
 	&__table {
