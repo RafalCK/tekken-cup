@@ -47,7 +47,7 @@ const { find } = useStrapi();
 const matchesResponse = await find("matches", {
 	populate: "deep",
 	pagination: {
-		limit: 50,
+		limit: 150,
 	},
 });
 let matches: object[] = matchesResponse.data;
